@@ -11,12 +11,321 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <!-- Premium JS Brand Favicon -->
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=3">
+  <link rel="alternate icon" href="./favicon.svg?v=3">
+
   <link rel="stylesheet" href="styles.css">
 
-  <!-- Jecky Samani custom J+S monogram favicon -->
-  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg?v=2">
-  <link rel="alternate icon" href="./assets/favicon.svg?v=2">
-  <meta name="theme-color" content="#080b10">
+  <style id="premium-engineering-v2">
+.engineering-knowledge-section {
+      position: relative;
+      overflow: hidden;
+    }
+    .engineering-knowledge-section::before {
+      content: "";
+      position: absolute;
+      inset: 8% -10% auto;
+      height: 420px;
+      background:
+        radial-gradient(circle at 25% 40%, rgba(56,189,248,.10), transparent 35%),
+        radial-gradient(circle at 80% 20%, rgba(99,102,241,.08), transparent 32%);
+      pointer-events: none;
+    }
+    .knowledge-hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 1.25rem;
+      align-items: stretch;
+    }
+    .knowledge-intro-card,
+    .knowledge-decision-card,
+    .knowledge-matrix {
+      border: 1px solid rgba(56,189,248,.16);
+      background: linear-gradient(145deg, rgba(14,20,32,.96), rgba(7,11,18,.94));
+      border-radius: 24px;
+      box-shadow: 0 20px 70px rgba(0,0,0,.28);
+    }
+    .knowledge-intro-card {
+      padding: clamp(1.4rem, 3vw, 2.5rem);
+      min-height: 430px;
+    }
+    .knowledge-kicker,
+    .decision-label {
+      color: #38bdf8;
+      font-family: "Fira Code", monospace;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+    }
+    .knowledge-intro-card h3 {
+      margin: .65rem 0 .8rem;
+      font-size: clamp(1.7rem, 3vw, 2.45rem);
+      line-height: 1.08;
+    }
+    .knowledge-intro-card > p {
+      max-width: 650px;
+      color: rgba(226,232,240,.72);
+      line-height: 1.8;
+    }
+    .knowledge-flow {
+      margin-top: 2rem;
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      gap: .55rem;
+      align-items: center;
+    }
+    .flow-node {
+      min-width: 0;
+      padding: .95rem;
+      border-radius: 16px;
+      border: 1px solid rgba(148,163,184,.14);
+      background: rgba(255,255,255,.025);
+    }
+    .flow-node.active {
+      border-color: rgba(56,189,248,.42);
+      box-shadow: inset 0 0 25px rgba(56,189,248,.05);
+    }
+    .flow-node span {
+      display: block;
+      color: #38bdf8;
+      font: 600 .65rem "Fira Code", monospace;
+    }
+    .flow-node strong {
+      display: block;
+      margin-top: .3rem;
+    }
+    .flow-node small,
+    .branch-node small {
+      display: block;
+      margin-top: .25rem;
+      color: rgba(226,232,240,.48);
+      font-size: .72rem;
+      line-height: 1.45;
+    }
+    .flow-line {
+      width: 22px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #38bdf8, transparent);
+    }
+    .flow-branch {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .75rem;
+      margin-top: .2rem;
+      position: relative;
+    }
+    .flow-branch::before {
+      content: "";
+      position: absolute;
+      width: 1px;
+      height: 18px;
+      background: rgba(56,189,248,.45);
+      left: 50%;
+      top: -18px;
+    }
+    .branch-line {
+      position: absolute;
+      top: 0;
+      left: 25%;
+      right: 25%;
+      height: 1px;
+      background: rgba(56,189,248,.28);
+    }
+    .branch-node {
+      padding: .8rem 1rem;
+      border: 1px solid rgba(56,189,248,.12);
+      border-radius: 14px;
+      background: rgba(56,189,248,.035);
+    }
+    .knowledge-decision-card {
+      padding: 1.15rem;
+    }
+    .decision-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .55rem .6rem 1rem;
+      border-bottom: 1px solid rgba(148,163,184,.12);
+    }
+    .decision-live {
+      color: #34d399;
+      font-size: .7rem;
+      font-family: "Fira Code", monospace;
+    }
+    .decision-live i {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      margin-right: 5px;
+      border-radius: 50%;
+      background: #34d399;
+      box-shadow: 0 0 10px #34d399;
+    }
+    .decision-row {
+      display: grid;
+      grid-template-columns: 42px minmax(130px, 1fr) 20px minmax(120px, .9fr);
+      gap: .7rem;
+      align-items: center;
+      padding: 1rem .55rem;
+      border-bottom: 1px solid rgba(148,163,184,.08);
+    }
+    .decision-row:last-child { border-bottom: 0; }
+    .decision-icon {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      border: 1px solid rgba(56,189,248,.22);
+      color: #38bdf8;
+      font: 700 .72rem "Fira Code", monospace;
+      background: rgba(56,189,248,.05);
+    }
+    .decision-row strong,
+    .decision-row span {
+      display: block;
+    }
+    .decision-row strong { font-size: .9rem; }
+    .decision-row span {
+      margin-top: .22rem;
+      color: rgba(226,232,240,.58);
+      font-size: .72rem;
+    }
+    .decision-row em {
+      color: #38bdf8;
+      font-style: normal;
+    }
+    .decision-row > b {
+      color: #38bdf8;
+      text-align: center;
+    }
+    .decision-row > small {
+      color: rgba(226,232,240,.52);
+      line-height: 1.45;
+    }
+
+    .knowledge-matrix {
+      position: relative;
+      margin-top: 1.25rem;
+      padding: 1.25rem;
+    }
+    .matrix-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: flex-end;
+      margin-bottom: 1rem;
+    }
+    .matrix-title h3 {
+      margin: .4rem 0 0;
+      font-size: 1.3rem;
+    }
+    .matrix-note {
+      color: rgba(226,232,240,.42);
+      font: .7rem "Fira Code", monospace;
+    }
+    .matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: .75rem;
+    }
+    .matrix-item {
+      position: relative;
+      text-align: left;
+      min-height: 125px;
+      padding: 1rem;
+      color: inherit;
+      background: rgba(255,255,255,.025);
+      border: 1px solid rgba(148,163,184,.12);
+      border-radius: 17px;
+      cursor: pointer;
+      transition: transform .25s ease, border-color .25s ease, background .25s ease;
+    }
+    .matrix-item:hover,
+    .matrix-item.active {
+      transform: translateY(-3px);
+      border-color: rgba(56,189,248,.4);
+      background: rgba(56,189,248,.055);
+    }
+    .matrix-index {
+      display: block;
+      color: #38bdf8;
+      font: 600 .65rem "Fira Code", monospace;
+    }
+    .matrix-item strong {
+      display: block;
+      margin-top: 1.25rem;
+      font-size: .95rem;
+    }
+    .matrix-item small {
+      display: block;
+      margin-top: .3rem;
+      color: rgba(226,232,240,.5);
+      line-height: 1.45;
+    }
+    .matrix-arrow {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      color: rgba(56,189,248,.65);
+    }
+    .matrix-detail {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 1rem;
+      align-items: center;
+      margin-top: .8rem;
+      padding: .9rem 1rem;
+      border-radius: 14px;
+      background: rgba(56,189,248,.04);
+      border: 1px solid rgba(56,189,248,.1);
+    }
+    .matrix-detail-tag {
+      color: #38bdf8;
+      font: 600 .68rem "Fira Code", monospace;
+      letter-spacing: .1em;
+    }
+    .matrix-detail p {
+      margin: 0;
+      color: rgba(226,232,240,.68);
+      line-height: 1.55;
+    }
+
+    @media (max-width: 900px) {
+      .knowledge-hero-grid { grid-template-columns: 1fr; }
+      .matrix-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 620px) {
+      .knowledge-flow { grid-template-columns: 1fr; }
+      .flow-line { width: 1px; height: 18px; margin: 0 auto; background: linear-gradient(180deg, transparent, #38bdf8, transparent); }
+      .flow-branch { margin-top: 1rem; }
+      .decision-row { grid-template-columns: 38px 1fr; }
+      .decision-row > b,
+      .decision-row > small { grid-column: 2; }
+      .matrix-grid { grid-template-columns: 1fr; }
+      .matrix-detail { grid-template-columns: 1fr; }
+      .matrix-title { align-items: flex-start; flex-direction: column; }
+    }
+  
+    /* 03A section: remove accidental top separator line */
+    .engineering-knowledge-section {
+      border-top: 0 !important;
+      box-shadow: none !important;
+    }
+
+    .engineering-knowledge-section::after {
+      content: none !important;
+      display: none !important;
+      border: 0 !important;
+      box-shadow: none !important;
+    }
+
+  </style>
+
 </head>
 <body>
 
@@ -287,6 +596,8 @@
             </div>
             <div class="tech-tags-list">
               <button class="tech-chip" data-tech="sqlite">SQLite</button>
+              <button class="tech-chip" data-tech="room">Room</button>
+              <button class="tech-chip" data-tech="sharedprefs">SharedPreferences</button>
             </div>
           </div>
 
@@ -303,6 +614,7 @@
               <button class="tech-chip" data-tech="git">Git</button>
               <button class="tech-chip" data-tech="jira">Atlassian JIRA</button>
               <button class="tech-chip" data-tech="xml">XML</button>
+              <button class="tech-chip" data-tech="workmanager">WorkManager</button>
             </div>
           </div>
         </div>
@@ -319,6 +631,154 @@
               <strong>Production Usage in Projects:</strong>
               <span id="inspector-projects">TenSquare, KOnverge Now, The Crazy Beauty POS</span>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ENGINEERING KNOWLEDGE SECTION -->
+    <section class="section-padding engineering-knowledge-section" id="engineering-knowledge">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-num">03A</span>
+          <h2 class="section-title">Engineering knowledge beyond the UI</h2>
+          <p class="section-subtitle">
+            Practical mobile engineering decisions — with production experience clearly separated from broader technical knowledge.
+          </p>
+        </div>
+
+        <div class="knowledge-hero-grid">
+          <div class="knowledge-intro-card">
+            <div class="knowledge-kicker">MOBILE ENGINEERING MAP</div>
+            <h3>Choose the right tool for the job.</h3>
+            <p>
+              Good mobile engineering is not about collecting technologies. It is about choosing the right
+              persistence, networking, architecture and background-execution strategy for the product constraint.
+            </p>
+
+            <div class="knowledge-flow" aria-label="Mobile data flow diagram">
+              <div class="flow-node active">
+                <span>01</span>
+                <strong>UI</strong>
+                <small>Screen & state</small>
+              </div>
+              <div class="flow-line"></div>
+              <div class="flow-node">
+                <span>02</span>
+                <strong>Logic</strong>
+                <small>ViewModel / business rules</small>
+              </div>
+              <div class="flow-line"></div>
+              <div class="flow-node">
+                <span>03</span>
+                <strong>Repository</strong>
+                <small>Single data boundary</small>
+              </div>
+              <div class="flow-branch">
+                <div class="branch-line"></div>
+                <div class="branch-node">
+                  <strong>Remote</strong>
+                  <small>REST / Firebase</small>
+                </div>
+                <div class="branch-node">
+                  <strong>Local</strong>
+                  <small>SQLite / Room / SharedPreferences</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="knowledge-decision-card">
+            <div class="decision-card-head">
+              <span class="decision-label">TECHNICAL DECISION GUIDE</span>
+              <span class="decision-live"><i></i> Practical</span>
+            </div>
+
+            <div class="decision-row">
+              <div class="decision-icon">DB</div>
+              <div>
+                <strong>Structured offline data</strong>
+                <span>SQLite <em>· production experience</em></span>
+              </div>
+              <b>→</b>
+              <small>Relational records, queries, local caching</small>
+            </div>
+
+            <div class="decision-row">
+              <div class="decision-icon">RM</div>
+              <div>
+                <strong>Type-safe Android persistence</strong>
+                <span>Room <em>· technical knowledge</em></span>
+              </div>
+              <b>→</b>
+              <small>Entity / DAO based persistence over SQLite</small>
+            </div>
+
+            <div class="decision-row">
+              <div class="decision-icon">KV</div>
+              <div>
+                <strong>Small key-value state</strong>
+                <span>SharedPreferences <em>· technical knowledge</em></span>
+              </div>
+              <b>→</b>
+              <small>Flags, lightweight settings and simple local values</small>
+            </div>
+
+            <div class="decision-row">
+              <div class="decision-icon">BG</div>
+              <div>
+                <strong>Reliable deferred background work</strong>
+                <span>WorkManager <em>· technical knowledge</em></span>
+              </div>
+              <b>→</b>
+              <small>Deferrable jobs that should survive app restarts</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="knowledge-matrix">
+          <div class="matrix-title">
+            <div>
+              <span class="knowledge-kicker">KNOWLEDGE MATRIX</span>
+              <h3>What I think about before shipping</h3>
+            </div>
+            <span class="matrix-note">No artificial skill percentages</span>
+          </div>
+
+          <div class="matrix-grid">
+            <button class="matrix-item" data-knowledge="storage">
+              <span class="matrix-index">01</span>
+              <strong>Persistence</strong>
+              <small>SQLite · Room · SharedPreferences</small>
+              <span class="matrix-arrow">↗</span>
+            </button>
+            <button class="matrix-item" data-knowledge="network">
+              <span class="matrix-index">02</span>
+              <strong>Networking</strong>
+              <small>REST · Retrofit · Volley · error states</small>
+              <span class="matrix-arrow">↗</span>
+            </button>
+            <button class="matrix-item" data-knowledge="background">
+              <span class="matrix-index">03</span>
+              <strong>Background work</strong>
+              <small>WorkManager · reliable deferred jobs</small>
+              <span class="matrix-arrow">↗</span>
+            </button>
+            <button class="matrix-item" data-knowledge="integration">
+              <span class="matrix-index">04</span>
+              <strong>Integrations</strong>
+              <small>Firebase · Razorpay · Maps · FCM</small>
+              <span class="matrix-arrow">↗</span>
+            </button>
+          </div>
+
+          <div class="matrix-detail" id="knowledge-detail" aria-live="polite">
+            <span class="matrix-detail-tag">PERSISTENCE</span>
+            <p id="knowledge-detail-text">
+              Match the storage layer to the data: relational/offline records in SQLite or Room,
+              lightweight key-value settings in SharedPreferences.
+            </p>
           </div>
         </div>
       </div>
@@ -787,6 +1247,7 @@
                 <span class="p-tech">Volley / Retrofit</span>
                 <span class="p-tech">Google Maps API</span>
                 <span class="p-tech">Enterprise Mobile Security</span>
+                <span class="p-tech">Firebase Chat</span>
               </div>
 
               <div class="enterprise-badge-footer">
@@ -899,7 +1360,7 @@
                 <span class="layer-step">06</span>
                 <span class="layer-title">Local Storage & Persistence</span>
               </div>
-              <p class="layer-short">SQLite Database, Shared Preferences, Hive Cache</p>
+              <p class="layer-short">SQLite, Room & SharedPreferences — chosen by data shape and persistence needs</p>
             </div>
           </div>
 
@@ -1202,6 +1663,94 @@
       </div>
     </div>
   </div>
+
+
+<script id="premium-engineering-v2-js">
+(function () {
+  const knowledge = {
+    storage: {
+      tag: 'PERSISTENCE',
+      text: 'Match the storage layer to the data: SQLite for structured local records and caching, Room as a type-safe Android persistence abstraction over SQLite, and SharedPreferences for lightweight key-value settings.'
+    },
+    network: {
+      tag: 'NETWORKING',
+      text: 'Treat networking as a state machine: loading, success, empty, failure and retry. Retrofit and Volley are used for REST API communication, with repository boundaries keeping UI code independent from transport details.'
+    },
+    background: {
+      tag: 'BACKGROUND WORK',
+      text: 'WorkManager is suited to reliable, deferrable background jobs that should continue across app restarts and respect system constraints such as network availability.'
+    },
+    integration: {
+      tag: 'INTEGRATIONS',
+      text: 'Production mobile apps often combine Firebase services, payment gateways, maps and push notifications. Each integration should have clear failure handling and a predictable UI state.'
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const detailTag = document.getElementById('knowledge-detail')?.querySelector('.matrix-detail-tag');
+    const detailText = document.getElementById('knowledge-detail-text');
+
+    document.querySelectorAll('.matrix-item[data-knowledge]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        document.querySelectorAll('.matrix-item[data-knowledge]').forEach(b => b.classList.remove('active'));
+        button.classList.add('active');
+        const item = knowledge[button.dataset.knowledge];
+        if (item && detailTag && detailText) {
+          detailTag.textContent = item.tag;
+          detailText.textContent = item.text;
+        }
+      });
+    });
+
+    // Add accurate inspector content for the three explicitly requested knowledge items.
+    const inspector = document.getElementById('tech-inspector');
+    const name = document.getElementById('inspector-name');
+    const cat = document.getElementById('inspector-cat');
+    const desc = document.getElementById('inspector-desc');
+    const projects = document.getElementById('inspector-projects');
+
+    const extraTech = {
+      room: {
+        name: 'Room',
+        cat: 'Local Persistence — Technical Knowledge',
+        desc: 'Android persistence library that provides a structured, type-safe abstraction over SQLite using entities and DAOs.',
+        projects: 'Knowledge focus — not presented as a project-specific production claim'
+      },
+      sharedprefs: {
+        name: 'SharedPreferences',
+        cat: 'Local Key-Value Storage — Technical Knowledge',
+        desc: 'Lightweight Android key-value storage suitable for simple flags, preferences and small configuration values.',
+        projects: 'Knowledge focus — use where lightweight local state is appropriate'
+      },
+      workmanager: {
+        name: 'WorkManager',
+        cat: 'Background Work — Technical Knowledge',
+        desc: 'Android API for reliable deferrable background work with lifecycle and system-constraint awareness.',
+        projects: 'Knowledge focus — not presented as a project-specific production claim'
+      },
+      firebasechat: {
+        name: 'Firebase Chat',
+        cat: 'Real-time Communication',
+        desc: 'Firebase-backed chat for real-time messaging and communication workflows.',
+        projects: 'KOnverge Now · Laddoo'
+      }
+    };
+
+    document.querySelectorAll('.tech-chip[data-tech]').forEach(function (chip) {
+      const key = chip.dataset.tech;
+      if (!extraTech[key]) return;
+      chip.addEventListener('click', function () {
+        if (!inspector) return;
+        inspector.classList.add('is-visible');
+        if (name) name.textContent = extraTech[key].name;
+        if (cat) cat.textContent = extraTech[key].cat;
+        if (desc) desc.textContent = extraTech[key].desc;
+        if (projects) projects.textContent = extraTech[key].projects;
+      });
+    });
+  });
+})();
+</script>
 
   <script src="script.js"></script>
 </body>
